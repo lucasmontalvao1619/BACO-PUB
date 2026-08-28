@@ -24,7 +24,7 @@
 
   --radius: 18px;
   --radius-lg: 26px;
-  --shell: min(1180px, 100% - 3rem);
+  --shell: min(max(73.75rem, 62vw), 100% - 3rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* o meandro do anel da logo — o ornamento da casa, reaproveitado
@@ -43,6 +43,25 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Acima de 1600px o layout inteiro cresce junto com a tela, em vez de
+   virar uma coluna estreita perdida no meio do preto. Como quase tudo
+   aqui e rem (shell, tipografia, respiros, o vao do marquee), basta
+   mexer na raiz: as proporcoes do site continuam exatamente as mesmas.
+   O calc parte de 1rem, e nao de 16px, pra nao atropelar quem aumentou
+   a fonte padrao do navegador. */
+@media (min-width: 1600px) {
+  html {
+    font-size: calc(1rem + (100vw - 1600px) * 0.00625);
+  }
+}
+
+/* teto: passou disso, para de crescer */
+@media (min-width: 3200px) {
+  html {
+    font-size: calc(1rem + 10px);
+  }
 }
 
 body {
@@ -332,7 +351,7 @@ img {
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: min(100svh, 62rem);
   display: flex;
   align-items: center;
   padding: 7rem 0 5rem;
@@ -397,7 +416,7 @@ img {
 .hero-logo {
   position: relative;
   justify-self: center;
-  width: min(100%, 420px);
+  width: min(100%, 26.25rem);
 }
 
 .hero-logo img {
@@ -527,7 +546,7 @@ img {
 /* --- com foto: tile alto, texto sobre o degrade --- */
 
 .tile-foto {
-  min-height: 320px;
+  min-height: 23.75rem;
 }
 
 /**
@@ -544,7 +563,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.55) contrast(1.12) brightness(0.92);
+  filter: saturate(0.68) contrast(1.06) brightness(0.95);
   transition:
     transform 1s var(--ease),
     filter 0.7s var(--ease);
@@ -563,32 +582,16 @@ img {
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(8, 9, 10, 0.5) 0%,
-    rgba(8, 9, 10, 0.22) 32%,
-    rgba(8, 9, 10, 0.88) 76%,
+    rgba(8, 9, 10, 0.38) 0%,
+    rgba(8, 9, 10, 0.12) 34%,
+    rgba(8, 9, 10, 0.86) 76%,
     rgba(8, 9, 10, 0.98) 100%
   );
 }
 
-/**
- * Enquadramento por card. O corte do `cover` cai no centro por padrao, e
- * em tres das fotos o centro e justamente a pior parte do quadro.
- */
-
-/* o karaoke: a letra da musica entra cortada na borda esquerda */
-.tile-b .tile-bg {
-  object-position: 72% 45%;
-}
-
-/* a sala de drinks: no centro tem um rosto em close, nao a sala */
-.tile-c .tile-bg {
-  object-position: 18% 55%;
-}
-
-/* o mural: as molduras boas estao a esquerda do quadro */
-.tile-e .tile-bg {
-  object-position: 38% 50%;
-}
+/* Sem object-position: cada arquivo ja foi recortado no formato do seu
+   card, entao o `cover` nao tem sobra pra jogar fora. Se trocar uma foto
+   por outra de proporcao diferente, e aqui que se acerta o enquadramento. */
 
 /* --- sem foto: ficha compacta, sem area vazia fingindo ser imagem --- */
 
@@ -630,7 +633,7 @@ img {
 /* com foto, as duas primeiras ficam maiores que as tres de baixo */
 .tile-a.tile-foto,
 .tile-b.tile-foto {
-  min-height: 400px;
+  min-height: 25rem;
 }
 
 @media (max-width: 980px) {

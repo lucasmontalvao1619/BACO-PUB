@@ -1,16 +1,26 @@
-Fotos do ambiente do PUB BACO, tiradas dos posts do proprio @pub_baco.
+Fotos do ambiente do PUB BACO.
 
 Cada arquivo aqui corresponde a um card da secao "O ambiente":
 
-  salao.jpg          -> O salao principal
-  karaoke.jpg        -> O karaoke
-  sala-de-drinks.jpg -> A sala de drinks
-  decoracao.jpg      -> A decoracao
-  mural.jpg          -> O mural
+  salao.jpg          -> O salao principal    1364x760
+  karaoke.jpg        -> O karaoke             964x760
+  sala-de-drinks.jpg -> A sala de drinks      766x760
+  decoracao.jpg      -> A decoracao           766x760
+  mural.jpg          -> O mural               766x760
 
-Para trocar qualquer uma, basta substituir o arquivo mantendo o nome —
-o card usa a foto automaticamente. Se um arquivo faltar, o card cai
-sozinho no padrao de grega, sem quebrar o layout.
+IMPORTANTE: cada arquivo ja vem recortado na proporcao do seu card, e o
+CSS nao tem mais `object-position` pra corrigir enquadramento. Se trocar
+uma foto, recorte na mesma proporcao (o dobro do tamanho em CSS, pra
+telas retina) ou o `object-fit: cover` vai cortar por conta propria.
 
-Sao capturas dos posts do Instagram, entao a resolucao e a de tela
-(1176x574). Se a casa tiver os originais, vale substituir por eles.
+Se um arquivo faltar, o card cai sozinho no padrao de grega, sem quebrar
+o layout.
+
+De onde veio cada uma:
+
+  salao, decoracao   fotos da casa (originais em 1216x605 e 662x729)
+  sala-de-drinks     foto dos drinks da casa (original 399x831 — e a de
+                     menor resolucao do conjunto; se aparecer o arquivo
+                     original da camera, vale trocar)
+  karaoke            capa de reel do @pub_baco (720x1280)
+  mural              post do @pub_baco (1080x1080)
