@@ -11,7 +11,7 @@ export default function Noites() {
           <h2 className="section-title">Quatro noites, quatro experiências</h2>
           <p className="section-lede">
             De quarta a sábado o Baco entra no clima de magia, Lua, astrologia e mistério — e tem
-            karaokê todos os dias. Casa aberta às 19h, karaokê até as 2h, entrada free.
+            karaokê todos os dias. Casa aberta às 19h, karaokê até as 2h, o pub fecha às 3h.
           </p>
         </Reveal>
 

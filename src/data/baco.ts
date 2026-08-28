@@ -48,7 +48,9 @@ export const redes: Rede[] = [
 
 export const horarios = [
   { dia: 'Quarta a Sábado', hora: 'Casa abre às 19h' },
+  { dia: 'Cozinha', hora: 'Até 1h' },
   { dia: 'Karaokê', hora: 'Até 2h, entrada free' },
+  { dia: 'Fim da noite', hora: 'O pub fecha às 3h' },
   { dia: 'Domingo a Terça', hora: 'Fechado' },
 ] as const
 
@@ -219,7 +221,7 @@ export const cardapio: SecaoMenu[] = [
   },
   {
     secao: 'Cozinha',
-    nota: 'Sabores artesanais a noite inteira',
+    nota: 'A brasa fica acesa até 1h',
     itens: [
       {
         nome: 'Espetinhos na brasa',
@@ -236,6 +238,7 @@ export const cardapio: SecaoMenu[] = [
 export const numeros = [
   { valor: '19h', rotulo: 'Casa aberta' },
   { valor: 'Até 2h', rotulo: 'Karaokê rolando' },
+  { valor: '3h', rotulo: 'O pub fecha' },
   { valor: 'Free', rotulo: 'Entrada' },
   { valor: '4 noites', rotulo: 'Qua a sáb' },
 ] as const
@@ -255,5 +258,9 @@ export const depoimentos: Depoimento[] = [
     autor: 'Avaliação no Tripadvisor',
   },
   { texto: 'Dois ambientes, dois climas, uma noite só.', autor: '@pub_baco' },
-  { texto: 'Quatro noites, quatro experiências. Uma semana para sair do comum.', autor: '@pub_baco' },
+  {
+    texto:
+      'O Pub Baco é feito de gente. Vocês chegam como clientes, mas deixam momentos, memórias e vida no nosso espaço.',
+    autor: '@pub_baco',
+  },
 ]

@@ -14,8 +14,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-lede">
-            Casa aberta às 19h, karaokê até as 2h e entrada free, de quarta a sábado. Sabores
-            artesanais, drinks especiais e duas salas com climas diferentes na mesma noite.
+            Casa aberta às 19h, karaokê até as 2h e o pub até as 3h, com entrada free de quarta a
+            sábado. Sabores artesanais, drinks especiais e duas salas com climas diferentes.
           </p>
 
           <div className="hero-actions">

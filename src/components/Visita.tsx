@@ -45,6 +45,14 @@ export default function Visita() {
                   </dd>
                 </div>
                 <div>
+                  <dt>Aniversários e eventos</dt>
+                  <dd>
+                    <a href={contato.whatsapp} target="_blank" rel="noreferrer">
+                      Combine com a casa no WhatsApp
+                    </a>
+                  </dd>
+                </div>
+                <div>
                   <dt>Redes sociais</dt>
                   {redes.map((rede) => (
                     <dd key={rede.nome}>

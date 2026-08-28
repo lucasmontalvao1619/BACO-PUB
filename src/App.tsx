@@ -11,6 +11,11 @@ import Noites from './components/Noites'
 import SalaDrinks from './components/SalaDrinks'
 import Visita from './components/Visita'
 
+/**
+ * A regra dos divisores: toda troca de secao ganha uma faixa de grega,
+ * menos onde a secao ja traz a propria borda de ponta a ponta — a fita
+ * do manifesto e a sala de drinks. Ali a grega sobraria em cima do fio.
+ */
 export default function App() {
   return (
     <>
@@ -29,7 +34,9 @@ export default function App() {
         <Cardapio />
         <Grega />
         <Depoimentos />
+        <Grega />
         <Grupo />
+        <Grega />
         <Visita />
       </main>
 
