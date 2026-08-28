@@ -8,3 +8,25 @@ dist-ssr
 !.env.example
 *.log
 .vite
+
+# Ferramentas de IA / assistentes — nada disso entra no repositório
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.claude.json
+.claude.json.*
+.claude/settings.local.json
+.mcp.json
+.aider*
+.cursor/
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+.codeium/
+.continue/
+.agents/
+.cagent/
+.junie/
+.codex/
+.copilot/
+.codemoss/
