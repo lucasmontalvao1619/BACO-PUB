@@ -30,3 +30,6 @@ CLAUDE.local.md
 .codex/
 .copilot/
 .codemoss/
+
+# Artefatos de build do TypeScript
+*.tsbuildinfo
