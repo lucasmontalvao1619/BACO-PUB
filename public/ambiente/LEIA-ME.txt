@@ -1,0 +1,14 @@
+Fotos do ambiente do PUB BACO.
+
+Salve aqui os arquivos com EXATAMENTE estes nomes e cada card da secao
+"O ambiente" troca o padrao de grega pela foto sozinho:
+
+  salao.jpg           -> O salao principal (karaoke)
+  sala-de-drinks.jpg  -> A sala de drinks (lá no fundo)
+  area-externa.jpg    -> Area externa
+  lounge.jpg          -> O lounge
+  brasa.jpg           -> A brasa
+
+Dica: use imagens de no maximo ~1600px de largura e qualidade 80 para
+o site continuar leve. Se algum arquivo faltar, o card volta sozinho
+para o padrao de grega — nada quebra.

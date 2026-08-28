@@ -1,5 +1,35 @@
-import { espacos, redes } from '../data/baco'
+import { useState } from 'react'
+import { espacos, redes, type Espaco } from '../data/baco'
 import Reveal from './Reveal'
+
+/**
+ * Card de um canto da casa. Se a foto existir em /public/ambiente ela entra;
+ * se faltar, o card cai no padrao de grega em vez de ficar vazio.
+ */
+function Tile({ espaco, delay }: { espaco: Espaco; delay: number }) {
+  const [semFoto, setSemFoto] = useState(!espaco.foto)
+
+  return (
+    <Reveal delay={delay} className={`tile ${espaco.classe}`}>
+      {semFoto ? (
+        <div className="tile-padrao" aria-hidden="true" />
+      ) : (
+        <img
+          className="tile-bg"
+          src={`/ambiente/${espaco.foto}`}
+          alt={espaco.titulo}
+          loading="lazy"
+          decoding="async"
+          onError={() => setSemFoto(true)}
+        />
+      )}
+      <div>
+        <h3>{espaco.titulo}</h3>
+        <p>{espaco.texto}</p>
+      </div>
+    </Reveal>
+  )
+}
 
 export default function Ambiente() {
   return (
@@ -7,35 +37,30 @@ export default function Ambiente() {
       <div className="shell">
         <Reveal>
           <p className="eyebrow">O ambiente</p>
-          <h2 className="section-title">Uma casa exótica, do portão ao último espeto</h2>
+          <h2 className="section-title">Duas salas, dois climas, uma noite só</h2>
           <p className="section-lede">
-            Quem chega pela primeira vez costuma dizer a mesma coisa: parece um pub americano que
-            resolveu virar tropical. Madeira, folhagem, neon e luz baixa — cada canto é uma foto
-            pronta, e nenhuma delas explica direito como é estar lá dentro.
+            Na frente, o salão principal e o karaokê. Lá no fundo, a sala de drinks, mais escura e
+            mais íntima. Entre uma e outra, a área externa e o lounge — dá pra atravessar a noite
+            sem repetir o mesmo canto duas vezes.
           </p>
         </Reveal>
 
         <div className="ambiente-grid">
           {espacos.map((espaco, i) => (
-            <Reveal key={espaco.titulo} delay={i * 90} className={`tile ${espaco.classe}`}>
-              <div className="tile-bg" style={{ background: espaco.gradiente }} />
-              <div>
-                <h3>{espaco.titulo}</h3>
-                <p>{espaco.texto}</p>
-              </div>
-            </Reveal>
+            <Tile key={espaco.titulo} espaco={espaco} delay={i * 80} />
           ))}
         </div>
 
-        <Reveal delay={120}>
+        <Reveal delay={100}>
           <p className="menu-aviso">
-            Fotos reais do salão estão no{' '}
-            <a href={redes[0].url} target="_blank" rel="noreferrer" style={{ color: 'var(--neon-soft)' }}>
+            As fotos da casa estão no{' '}
+            <a href={redes[0].url} target="_blank" rel="noreferrer">
               Instagram {redes[0].handle}
             </a>
-            . Para trocar os fundos coloridos por fotos, salve as imagens em{' '}
-            <code>/public/ambiente</code> e aponte o campo <code>gradiente</code> de{' '}
-            <code>src/data/baco.ts</code> para o arquivo.
+            . Para usá-las aqui, salve os arquivos em <code>public/ambiente/</code> com os nomes
+            <code> salao.jpg</code>, <code>sala-de-drinks.jpg</code>, <code>area-externa.jpg</code>,{' '}
+            <code>lounge.jpg</code> e <code>brasa.jpg</code> — cada card troca o padrão pela foto
+            sozinho.
           </p>
         </Reveal>
       </div>

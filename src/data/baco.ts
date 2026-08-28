@@ -1,20 +1,28 @@
 /**
  * Conteudo do PUB BACO.
- * Fontes publicas: instagram.com/pub_baco, threads.com/@pub_baco,
- * facebook.com/Pub-Baco-Aracaju, restaurantguru.com/Pub-baco-Aracaju e Tripadvisor.
- * Precos e endereco coletados da web — confirmar com a casa antes de publicar.
+ * Programacao e precos vindos dos posts do proprio @pub_baco no Instagram
+ * (Semana Mistica, 26 a 29/08, e o post do Submundo de sexta).
  */
 
 export const contato = {
   nome: 'PUB BACO',
   cidade: 'Aracaju • SE',
   bio: 'Sabores artesanais e drinks especiais • Karaokê livre',
-  endereco: 'Av. Desembargador Maynard, 290 — Aracaju/SE',
-  mapa: 'https://www.google.com/maps/search/?api=1&query=Pub+Baco+Aracaju',
+  endereco: 'R. Simão Dias, 525 — Aracaju/SE',
+  enderecoBusca: 'Pub Baco, Rua Simão Dias, Aracaju, Sergipe',
   telefone: '+55 79 98143-8993',
   whatsapp: 'https://wa.me/5579981438993',
   grupoWhatsapp: 'https://chat.whatsapp.com/CYKETzauY4TFFH88yo1PZ6?s=cl&p=i&mlu=4',
 } as const
+
+/** Embed do Google Maps — funciona sem chave de API. */
+export const mapaEmbed = `https://www.google.com/maps?q=${encodeURIComponent(
+  contato.enderecoBusca,
+)}&output=embed`
+
+export const mapaLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  contato.enderecoBusca,
+)}`
 
 export type Rede = {
   nome: string
@@ -39,8 +47,8 @@ export const redes: Rede[] = [
 ]
 
 export const horarios = [
-  { dia: 'Quarta a Sexta', hora: '19h — 02h30' },
-  { dia: 'Sábado', hora: '19h — 03h30' },
+  { dia: 'Quarta a Sábado', hora: 'Casa abre às 19h' },
+  { dia: 'Karaokê', hora: 'Até 2h, entrada free' },
   { dia: 'Domingo a Terça', hora: 'Fechado' },
 ] as const
 
@@ -57,89 +65,124 @@ export type Espaco = {
   classe: string
   titulo: string
   texto: string
-  gradiente: string
+  /** Arquivo em /public/ambiente. Sem foto, o card cai no padrao de grega. */
+  foto?: string
 }
 
-/**
- * Cada tile representa um canto da casa. `gradiente` e o fundo provisorio:
- * troque por uma foto colocando o arquivo em /public/ambiente e apontando
- * `gradiente` para `url('/ambiente/nome-do-arquivo.jpg')`.
- */
 export const espacos: Espaco[] = [
   {
     classe: 'tile-a',
-    titulo: 'O salão do karaokê',
+    titulo: 'O salão principal',
     texto:
-      'Luz baixa, letreiro aceso e o microfone no meio da casa. Aqui todo mundo canta — afinado ou não, a plateia devolve o refrão.',
-    gradiente:
-      'radial-gradient(120% 100% at 20% 10%, rgba(255,255,255,.14), transparent 58%), linear-gradient(150deg, #1c1f21, #0a0b0c)',
+      'Luz baixa, telão aceso e o microfone no meio da casa. O karaokê começa às 19h e vai até as 2h — sem inscrição, sem taxa, sem julgamento.',
+    foto: 'salao.jpg',
   },
   {
     classe: 'tile-b',
-    titulo: 'Pegada tropical',
+    titulo: 'A sala de drinks',
     texto:
-      'Folhagem por toda parte, madeira e um clima de pub americano perdido no trópico. Cada canto é uma foto pronta.',
-    gradiente:
-      'radial-gradient(100% 100% at 80% 20%, rgba(255,255,255,.11), transparent 60%), linear-gradient(200deg, #0d0f10, #1a1d1f)',
+      'Lá no fundo o clima muda: som mais intimista, DJ nas sextas e a carta de drinks autorais da casa.',
+    foto: 'sala-de-drinks.jpg',
   },
   {
     classe: 'tile-c',
-    titulo: 'A brasa',
-    texto: 'Espetinhos saindo quentes a noite inteira, com vinagrete e farofa.',
-    gradiente:
-      'radial-gradient(100% 100% at 30% 80%, rgba(255,255,255,.12), transparent 62%), linear-gradient(160deg, #16181a, #08090a)',
+    titulo: 'Área externa',
+    texto: 'Ar livre, música variada e mesa pra conversar sem gritar.',
+    foto: 'area-externa.jpg',
   },
   {
     classe: 'tile-d',
-    titulo: 'Lounge dos drinks',
-    texto: 'Caipirinhas, caipiroskas de fruta e criações autorais do bar.',
-    gradiente:
-      'radial-gradient(100% 100% at 70% 20%, rgba(255,255,255,.09), transparent 60%), linear-gradient(200deg, #0b0c0d, #17191b)',
+    titulo: 'O lounge',
+    texto: 'Sofá, penumbra e o canto certo pra esticar a noite com a mesa cheia.',
+    foto: 'lounge.jpg',
   },
   {
     classe: 'tile-e',
-    titulo: 'Área externa',
-    texto: 'Ar livre, música variada e mesa pra conversar sem gritar.',
-    gradiente:
-      'radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,.13), transparent 60%), linear-gradient(180deg, #1b1e20, #08090a)',
+    titulo: 'A brasa',
+    texto: 'Sabores artesanais saindo quentes a noite inteira.',
+    foto: 'brasa.jpg',
   },
 ]
 
 export type Noite = {
   dia: string
+  data?: string
   titulo: string
   descricao: string
   tag: string
 }
 
+/** Semana Mistica — programacao publicada pelo @pub_baco (26 a 29/08). */
 export const noites: Noite[] = [
   {
     dia: 'Quarta',
-    titulo: 'Karaokê Livre',
+    data: '26/08',
+    titulo: 'Oráculo da Canela',
     descricao:
-      'O microfone é seu. Sem inscrição, sem julgamento e sem taxa de entrada — só a sua voz e a plateia mais barulhenta de Aracaju.',
-    tag: 'Entrada free',
+      'Caipirinha de Canela por R$ 9,90 e, junto dela, um conselho do destino: na compra você retira um papel do Oráculo da Canela.',
+    tag: 'Caipirinha R$ 9,90',
   },
   {
     dia: 'Quinta',
-    titulo: 'Divas do Pop',
+    data: '27/08',
+    titulo: 'Pedidos da Lua',
     descricao:
-      'Uma noite inteira dedicada às vozes que criaram os hinos. Playlist temática, luz cênica e refrão em coro do começo ao fim.',
-    tag: 'Temática',
+      'Escreva algo que quer atrair ou deixar ir e coloque no Caldeirão da Sacerdotisa. Ganhe um Shot da Lua — uma participação por pessoa.',
+    tag: 'Shot da Lua',
   },
   {
     dia: 'Sexta',
-    titulo: 'Submundo • DJ Set',
+    data: '28/08',
+    titulo: 'Lua Cheia em Peixes',
     descricao:
-      'Eletrônico, funk e pop nacional na pista enquanto o karaokê segue rolando no salão. Drinks especiais no lounge.',
-    tag: 'Pista + Karaokê',
+      'Drinks dos Signos em promoção até as 22h e todos eles em dobro até meia-noite. Lá no fundo, o DJ assume a sala de drinks.',
+    tag: 'Drinks em dobro',
   },
   {
     dia: 'Sábado',
-    titulo: 'Semana Mística',
+    data: '29/08',
+    titulo: 'Sabá do Baco',
     descricao:
-      'A noite mais longa da casa, até as 3h30. Decoração exótica, espetinhos na brasa e o karaokê que não termina.',
-    tag: 'Até 03h30',
+      'Incensos, música e magia. Venha de verde e preto ou cante uma música de tema místico e participe do Drink Mágico.',
+    tag: 'Drink Mágico',
+  },
+]
+
+/**
+ * O lado alternativo da casa: a sala de drinks, onde o preto e branco
+ * da fachada da lugar ao neon. Cada item ganha sua propria cor.
+ */
+export type Neon = {
+  titulo: string
+  texto: string
+  cor: string
+  cor2: string
+}
+
+export const salaDrinks: Neon[] = [
+  {
+    titulo: 'Submundo',
+    texto: 'Funk eletrônico, pop e nacionais. O DJ assume o som a partir das 20h e a noite fica mais densa.',
+    cor: '#ff2e88',
+    cor2: '#7b2dff',
+  },
+  {
+    titulo: 'Divas do Pop',
+    texto: 'No salão principal, às 19h, o karaokê vira culto às vozes que criaram os hinos.',
+    cor: '#00e5ff',
+    cor2: '#2d6bff',
+  },
+  {
+    titulo: 'Drinks dos Signos',
+    texto: 'Doze drinks, um pra cada signo. Em promoção até 22h e em dobro até meia-noite.',
+    cor: '#ffb300',
+    cor2: '#ff4d00',
+  },
+  {
+    titulo: 'Dois ambientes',
+    texto: 'Na frente o karaokê pega fogo, lá no fundo a sala de drinks fica íntima. Uma noite só.',
+    cor: '#22e07a',
+    cor2: '#00b3a4',
   },
 ]
 
@@ -157,39 +200,59 @@ export type SecaoMenu = {
 
 export const cardapio: SecaoMenu[] = [
   {
-    secao: 'Espetinhos na brasa',
-    nota: 'Todos acompanham vinagrete e farofa',
+    secao: 'Drinks da Semana Mística',
+    nota: 'Valores publicados pela casa no Instagram',
     itens: [
-      { nome: 'Frango', descricao: 'Marinado na casa, grelhado na hora', preco: 'R$ 14,90' },
-      { nome: 'Carne de boi', descricao: 'Corte macio, sal grosso e brasa alta', preco: 'R$ 14,90' },
-      { nome: 'Coração', descricao: 'O clássico do espeto, no ponto certo', preco: 'R$ 14,90' },
-      { nome: 'Linguiça', descricao: 'Artesanal, servida bem dourada', preco: 'R$ 14,90' },
-      { nome: 'Língua', descricao: 'Selada devagar até desmanchar', preco: 'a partir de R$ 14,90' },
-      { nome: 'Costela', descricao: 'Assada lentamente, suculenta por dentro', preco: 'a partir de R$ 14,90' },
+      {
+        nome: 'Caipirinha de Canela',
+        descricao: 'Na quarta, sai com o conselho do Oráculo da Canela',
+        preco: 'R$ 9,90',
+      },
+      {
+        nome: 'Drinks dos Signos',
+        descricao: 'Sexta: em promoção até 22h e em dobro até 00h',
+        preco: 'promoção',
+      },
+      {
+        nome: 'Shot da Lua',
+        descricao: 'Quinta: um por pessoa, no Caldeirão da Sacerdotisa',
+        preco: 'brinde',
+      },
+      {
+        nome: 'Drink Mágico',
+        descricao: 'Sábado: de verde e preto ou cantando algo místico',
+        preco: 'brinde',
+      },
     ],
   },
   {
-    secao: 'Drinks da casa',
-    nota: 'A partir das 19h, de quarta a sábado',
+    secao: 'Cozinha e bar',
+    nota: 'Sabores artesanais e drinks especiais, a noite inteira',
     itens: [
+      {
+        nome: 'Espetinhos na brasa',
+        descricao: 'Com vinagrete e farofa',
+        preco: 'a partir de R$ 14,90',
+      },
       { nome: 'Caipirinha', descricao: 'Limão, cachaça e muito gelo', preco: 'R$ 12,00' },
       {
         nome: 'Caipiroska de frutas',
         descricao: 'Morango, maracujá, kiwi ou abacaxi',
         preco: 'R$ 14,90',
       },
-      { nome: 'Drinks autorais', descricao: 'Criações do bar, mudam toda semana', preco: 'consulte' },
       { nome: 'Cervejas geladas', descricao: 'Long neck e chope na pressão', preco: 'consulte' },
     ],
   },
 ]
 
 export const numeros = [
-  { valor: '4,7', rotulo: 'Nota no Google' },
-  { valor: 'R$ 0', rotulo: 'Entrada no karaokê' },
-  { valor: '4 noites', rotulo: 'De quarta a sábado' },
-  { valor: 'R$ 20–40', rotulo: 'Consumo médio' },
+  { valor: '19h', rotulo: 'Casa aberta' },
+  { valor: 'Até 2h', rotulo: 'Karaokê rolando' },
+  { valor: 'Free', rotulo: 'Entrada' },
+  { valor: '4 noites', rotulo: 'Qua a sáb' },
 ] as const
+
+export const aviso = 'Não é permitida a entrada com comida ou bebida.'
 
 export type Depoimento = {
   texto: string
@@ -202,12 +265,6 @@ export const depoimentos: Depoimento[] = [
       'Uma decoração instagramável super exótica, parece um bar americano tipo um pub numa pegada tropical, diferente de tudo.',
     autor: 'Avaliação no Tripadvisor',
   },
-  {
-    texto: 'Comida muito boa e o lugar é super exótico. Ambiente acolhedor do começo ao fim.',
-    autor: 'Avaliação no Google',
-  },
-  {
-    texto: 'Karaokê a noite inteira, sem cobrar entrada. Cada noite vira uma festa.',
-    autor: 'Cliente da casa',
-  },
+  { texto: 'Dois ambientes, dois climas, uma noite só.', autor: '@pub_baco' },
+  { texto: 'Quatro noites, quatro experiências. Uma semana para sair do comum.', autor: '@pub_baco' },
 ]

@@ -1,12 +1,12 @@
 import { contato, redes } from '../data/baco'
-import Tridente from './Tridente'
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="shell footer-inner">
         <p className="footer-marca">
-          <Tridente size={14} /> {contato.nome} — {contato.cidade}. {contato.bio}.
+          <img src="/logo-pub-baco.jpg" alt="" width={26} height={26} loading="lazy" />
+          {contato.nome} — {contato.cidade}
         </p>
 
         <nav className="footer-social">

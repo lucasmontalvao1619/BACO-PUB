@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { contato, redes } from '../data/baco'
-import Tridente from './Tridente'
 
 const links = [
   { href: '#ambiente', label: 'O ambiente' },
   { href: '#noites', label: 'Noites' },
+  { href: '#drinks', label: 'Sala de drinks' },
   { href: '#cardapio', label: 'Cardápio' },
-  { href: '#visita', label: 'Visite' },
+  { href: '#visita', label: 'Visite-nos' },
 ]
 
 export default function Nav() {
@@ -24,7 +24,8 @@ export default function Nav() {
     <header className={`nav ${stuck ? 'is-stuck' : ''}`.trim()}>
       <div className="shell nav-inner">
         <a className="brand" href="#topo">
-          <Tridente size={18} /> BACO <small>Aracaju</small>
+          <img src="/logo-pub-baco.jpg" alt="" width={34} height={34} />
+          BACO <small>Aracaju</small>
         </a>
 
         <nav className="nav-links">

@@ -7,7 +7,7 @@ import Reveal from './Reveal'
  */
 export default function Grupo() {
   return (
-    <section className="section" style={{ paddingBlock: 'clamp(3rem, 8vh, 5rem)' }}>
+    <section className="section" style={{ paddingBlock: 'clamp(2.5rem, 7vh, 4.5rem)' }}>
       <div className="shell">
         <Reveal>
           <div className="cta-grupo">

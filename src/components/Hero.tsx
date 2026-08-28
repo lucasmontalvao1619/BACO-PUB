@@ -1,35 +1,29 @@
 import { contato, numeros, redes } from '../data/baco'
-import Tridente from './Tridente'
 
 export default function Hero() {
   return (
     <section className="hero" id="topo">
       <div className="shell hero-grid">
         <div>
-          <p className="eyebrow">Karaokê alternativo • {contato.cidade}</p>
+          <p className="eyebrow">Karaokê livre • {contato.cidade}</p>
 
           <h1>
             Todo mundo
             <br />
-            canta no <span className="neon-word">Baco</span>
+            canta no <em>Baco</em>
           </h1>
 
           <p className="hero-lede">
-            Um pub de pegada tropical em Aracaju: folhagem por toda parte, luz baixa, espetinhos na
-            brasa e o microfone livre a noite inteira. Sem taxa de entrada, de quarta a sábado.
+            Casa aberta às 19h, karaokê até as 2h e entrada free, de quarta a sábado. Sabores
+            artesanais, drinks especiais e duas salas com climas diferentes na mesma noite.
           </p>
 
           <div className="hero-actions">
-            <a
-              className="btn btn-solid"
-              href={contato.grupoWhatsapp}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="btn btn-solid" href={contato.grupoWhatsapp} target="_blank" rel="noreferrer">
               Entrar no grupo do Baco
             </a>
             <a className="btn btn-ghost" href={redes[0].url} target="_blank" rel="noreferrer">
-              Ver o ambiente no Instagram
+              Ver o Instagram
             </a>
           </div>
 
@@ -43,17 +37,20 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-orb" aria-hidden="true">
-          <i>
-            <Tridente size={44} />
-          </i>
+        <div className="hero-logo">
+          <img
+            src="/logo-pub-baco.jpg"
+            alt="Logo do Pub Baco: Baco de perfil dentro de um anel de grega"
+            width={420}
+            height={420}
+            fetchPriority="high"
+          />
         </div>
       </div>
 
-      <div className="scroll-cue" aria-hidden="true">
-        <span />
+      <p className="scroll-cue" aria-hidden="true">
         role
-      </div>
+      </p>
     </section>
   )
 }
