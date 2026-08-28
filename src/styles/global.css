@@ -460,6 +460,7 @@ img {
   grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
   margin-top: 3.2rem;
+  align-items: stretch;
 }
 
 .tile {
@@ -467,11 +468,8 @@ img {
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--veil);
-  min-height: 240px;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.7rem;
   isolation: isolate;
+  display: flex;
   transition:
     transform 0.6s var(--ease),
     border-color 0.6s var(--ease);
@@ -480,6 +478,29 @@ img {
 .tile:hover {
   transform: translateY(-5px);
   border-color: var(--veil-strong);
+}
+
+.tile-txt {
+  position: relative;
+  padding: 1.7rem;
+  align-self: flex-end;
+}
+
+.tile h3 {
+  font-size: 1.3rem;
+}
+
+.tile p {
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  max-width: 40ch;
+}
+
+/* --- com foto: tile alto, texto sobre o degrade --- */
+
+.tile-foto {
+  min-height: 320px;
 }
 
 .tile-bg {
@@ -492,46 +513,48 @@ img {
   transition: transform 1s var(--ease);
 }
 
-.tile:hover .tile-bg {
+.tile-foto:hover .tile-bg {
   transform: scale(1.05);
 }
 
-/* sem foto: a propria grega vira textura de fundo */
-.tile-padrao {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  opacity: 0.14;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 22h24M2 22V2h16v16h-8v-8h4' fill='none' stroke='%23f7f7f5' stroke-width='2'/%3E%3C/svg%3E");
-  background-size: 42px 42px;
-}
-
-.tile::after {
+.tile-foto::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(8, 9, 10, 0.25) 0%, rgba(8, 9, 10, 0.95) 78%);
+  background: linear-gradient(180deg, rgba(8, 9, 10, 0.15) 30%, rgba(8, 9, 10, 0.96) 92%);
 }
 
-.tile h3 {
-  font-size: 1.35rem;
+/* --- sem foto: ficha compacta, sem area vazia fingindo ser imagem --- */
+
+.tile-ficha {
+  min-height: 0;
+  background: rgba(247, 247, 245, 0.025);
 }
 
-.tile p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--cream-dim);
-  max-width: 36ch;
+/* a grega fica so numa faixa no topo, como um friso */
+.tile-ficha::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 20px;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 22h24M2 22V2h16v16h-8v-8h4' fill='none' stroke='%23f7f7f5' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: auto 20px;
+  background-repeat: repeat-x;
 }
+
+.tile-ficha .tile-txt {
+  padding-top: 2.6rem;
+}
+
+/* --- proporcoes da grade --- */
 
 .tile-a {
   grid-column: span 7;
-  min-height: 380px;
 }
 .tile-b {
   grid-column: span 5;
-  min-height: 380px;
 }
 .tile-c,
 .tile-d,
@@ -539,14 +562,40 @@ img {
   grid-column: span 4;
 }
 
-@media (max-width: 880px) {
+/* com foto, as duas primeiras ficam maiores que as tres de baixo */
+.tile-a.tile-foto,
+.tile-b.tile-foto {
+  min-height: 400px;
+}
+
+@media (max-width: 980px) {
+  .tile-a,
+  .tile-b {
+    grid-column: span 6;
+  }
+  .tile-c,
+  .tile-d,
+  .tile-e {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 760px) {
   .tile-a,
   .tile-b,
   .tile-c,
   .tile-d,
   .tile-e {
     grid-column: span 12;
+  }
+
+  .tile-foto {
     min-height: 260px;
+  }
+
+  .tile-a.tile-foto,
+  .tile-b.tile-foto {
+    min-height: 300px;
   }
 }
 

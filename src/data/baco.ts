@@ -74,33 +74,33 @@ export const espacos: Espaco[] = [
     classe: 'tile-a',
     titulo: 'O salão principal',
     texto:
-      'Luz baixa, telão aceso e o microfone no meio da casa. O karaokê começa às 19h e vai até as 2h — sem inscrição, sem taxa, sem julgamento.',
+      'Lustre, luz rosa, parede coberta de achados e o telão no fundo. É onde a noite acontece, de quarta a sábado.',
     foto: 'salao.jpg',
   },
   {
     classe: 'tile-b',
-    titulo: 'A sala de drinks',
+    titulo: 'O karaokê',
     texto:
-      'Lá no fundo o clima muda: som mais intimista, DJ nas sextas e a carta de drinks autorais da casa.',
-    foto: 'sala-de-drinks.jpg',
+      'Microfone livre a partir das 19h e vai até as 2h. Sem inscrição, sem taxa — e a plateia devolve o refrão.',
+    foto: 'karaoke.jpg',
   },
   {
     classe: 'tile-c',
-    titulo: 'Área externa',
-    texto: 'Ar livre, música variada e mesa pra conversar sem gritar.',
-    foto: 'area-externa.jpg',
+    titulo: 'A sala de drinks',
+    texto: 'Lá no fundo: DJ nas sextas, luz colorida e a carta autoral do bar.',
+    foto: 'sala-de-drinks.jpg',
   },
   {
     classe: 'tile-d',
-    titulo: 'O lounge',
-    texto: 'Sofá, penumbra e o canto certo pra esticar a noite com a mesa cheia.',
-    foto: 'lounge.jpg',
+    titulo: 'A decoração',
+    texto: 'Cada parede é um achado diferente. Exótica de um jeito que foto nenhuma explica.',
+    foto: 'decoracao.jpg',
   },
   {
     classe: 'tile-e',
-    titulo: 'A brasa',
-    texto: 'Sabores artesanais saindo quentes a noite inteira.',
-    foto: 'brasa.jpg',
+    titulo: 'O mural',
+    texto: 'Molduras coloridas e recados deixados por quem passou pela casa.',
+    foto: 'mural.jpg',
   },
 ]
 
@@ -200,47 +200,35 @@ export type SecaoMenu = {
 
 export const cardapio: SecaoMenu[] = [
   {
-    secao: 'Drinks da Semana Mística',
-    nota: 'Valores publicados pela casa no Instagram',
+    secao: 'Drinks da casa',
+    nota: 'A partir das 19h — promoções até as 22h',
     itens: [
-      {
-        nome: 'Caipirinha de Canela',
-        descricao: 'Na quarta, sai com o conselho do Oráculo da Canela',
-        preco: 'R$ 9,90',
-      },
+      { nome: 'Caipirinha', descricao: 'A clássica da casa', preco: 'R$ 12,00' },
+      { nome: 'Caipiroska', descricao: 'Com a fruta da vez', preco: 'R$ 14,00' },
       {
         nome: 'Drinks dos Signos',
-        descricao: 'Sexta: em promoção até 22h e em dobro até 00h',
-        preco: 'promoção',
+        descricao: '12 sabores, um pra cada signo — compre 1 e ganhe outro',
+        preco: 'R$ 18,90',
       },
       {
-        nome: 'Shot da Lua',
-        descricao: 'Quinta: um por pessoa, no Caldeirão da Sacerdotisa',
-        preco: 'brinde',
-      },
-      {
-        nome: 'Drink Mágico',
-        descricao: 'Sábado: de verde e preto ou cantando algo místico',
-        preco: 'brinde',
+        nome: 'Caipirinha de Canela',
+        descricao: 'Da Semana Mística: sai com o conselho do Oráculo',
+        preco: 'R$ 9,90',
       },
     ],
   },
   {
-    secao: 'Cozinha e bar',
-    nota: 'Sabores artesanais e drinks especiais, a noite inteira',
+    secao: 'Cozinha',
+    nota: 'Sabores artesanais a noite inteira',
     itens: [
       {
         nome: 'Espetinhos na brasa',
         descricao: 'Com vinagrete e farofa',
         preco: 'a partir de R$ 14,90',
       },
-      { nome: 'Caipirinha', descricao: 'Limão, cachaça e muito gelo', preco: 'R$ 12,00' },
-      {
-        nome: 'Caipiroska de frutas',
-        descricao: 'Morango, maracujá, kiwi ou abacaxi',
-        preco: 'R$ 14,90',
-      },
+      { nome: 'Batata frita', descricao: 'A porção que acompanha a rodada', preco: 'R$ 19,90' },
       { nome: 'Cervejas geladas', descricao: 'Long neck e chope na pressão', preco: 'consulte' },
+      { nome: 'Shot da Lua', descricao: 'Quinta: um por pessoa, no Caldeirão da Sacerdotisa', preco: 'brinde' },
     ],
   },
 ]
@@ -252,7 +240,8 @@ export const numeros = [
   { valor: '4 noites', rotulo: 'Qua a sáb' },
 ] as const
 
-export const aviso = 'Não é permitida a entrada com comida ou bebida.'
+export const aviso =
+  'Não cobramos entrada e ninguém paga pra cantar. Não é permitida a entrada com comida ou bebida.'
 
 export type Depoimento = {
   texto: string

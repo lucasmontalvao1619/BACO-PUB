@@ -1,14 +1,16 @@
-Fotos do ambiente do PUB BACO.
+Fotos do ambiente do PUB BACO, tiradas dos posts do proprio @pub_baco.
 
-Salve aqui os arquivos com EXATAMENTE estes nomes e cada card da secao
-"O ambiente" troca o padrao de grega pela foto sozinho:
+Cada arquivo aqui corresponde a um card da secao "O ambiente":
 
-  salao.jpg           -> O salao principal (karaoke)
-  sala-de-drinks.jpg  -> A sala de drinks (lá no fundo)
-  area-externa.jpg    -> Area externa
-  lounge.jpg          -> O lounge
-  brasa.jpg           -> A brasa
+  salao.jpg          -> O salao principal
+  karaoke.jpg        -> O karaoke
+  sala-de-drinks.jpg -> A sala de drinks
+  decoracao.jpg      -> A decoracao
+  mural.jpg          -> O mural
 
-Dica: use imagens de no maximo ~1600px de largura e qualidade 80 para
-o site continuar leve. Se algum arquivo faltar, o card volta sozinho
-para o padrao de grega — nada quebra.
+Para trocar qualquer uma, basta substituir o arquivo mantendo o nome —
+o card usa a foto automaticamente. Se um arquivo faltar, o card cai
+sozinho no padrao de grega, sem quebrar o layout.
+
+Sao capturas dos posts do Instagram, entao a resolucao e a de tela
+(1176x574). Se a casa tiver os originais, vale substituir por eles.

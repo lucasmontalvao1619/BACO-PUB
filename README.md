@@ -60,14 +60,14 @@ Cuidados ao mexer: `content-visibility: auto` nas seções foi testado e
 
 ## Fotos do ambiente
 
-Os cinco blocos da seção "O ambiente" ainda usam o padrão de grega. Para
-colocar as fotos reais, basta salvá-las em `public/ambiente/` com os nomes
-listados em `public/ambiente/LEIA-ME.txt` (`salao.jpg`, `sala-de-drinks.jpg`,
-`area-externa.jpg`, `lounge.jpg`, `brasa.jpg`). Nenhuma alteração de código é
-necessária — o card detecta a foto e troca sozinho; se faltar, volta ao padrão.
+Os cinco cards da seção "O ambiente" usam fotos tiradas dos posts do
+@pub_baco — salão principal, karaokê, sala de drinks, decoração e mural.
+Os arquivos estão em `public/ambiente/` (ver `LEIA-ME.txt` lá dentro).
 
-As fotos não foram baixadas automaticamente: o Instagram bloqueia leitura das
-imagens por automação (os destaques não abrem e as URLs do CDN são protegidas).
+São capturas de tela dos posts, então a resolução é 1176x574. Se a casa
+tiver os originais, vale substituir os arquivos mantendo os mesmos nomes —
+o card troca sozinho, sem mexer no código. Se algum arquivo sumir, o card
+cai no padrão de grega em vez de quebrar o layout.
 
 ## Origem do conteúdo
 
@@ -83,9 +83,10 @@ Vindo dos posts do próprio @pub_baco:
 A programação muda toda semana: quando o Baco anunciar a próxima, atualize
 `noites` em `src/data/baco.ts`.
 
-Ainda **não confirmados com a casa** (vieram de Restaurant Guru/Tripadvisor):
-espetinhos a partir de R$ 14,90, caipirinha R$ 12,00 e caipiroska R$ 14,90,
-na seção "Cozinha e bar".
+- **Preços** — Caipirinha R$ 12,00, Caipiroska R$ 14,00, Drinks dos Signos
+  R$ 18,90 (compre 1 e ganhe outro), Caipirinha de Canela R$ 9,90 e batata
+  frita R$ 19,90, todos de posts da casa. Só "espetinhos a partir de
+  R$ 14,90" veio do Restaurant Guru e ainda não foi confirmado.
 
 ## Links
 
