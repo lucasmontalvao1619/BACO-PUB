@@ -89,10 +89,10 @@ export default function Nav() {
         </nav>
 
         <div className="nav-cta">
-          <a className="btn btn-ghost" href={instagram.url} target="_blank" rel="noreferrer">
+          <a className="btn btn-ghost" href={instagram.url} target="_blank" rel="noopener noreferrer">
             {instagram.handle}
           </a>
-          <a className="btn btn-solid" href={contato.grupoWhatsapp} target="_blank" rel="noreferrer">
+          <a className="btn btn-solid" href={contato.grupoWhatsapp} target="_blank" rel="noopener noreferrer">
             Entrar no grupo
           </a>
         </div>
@@ -126,7 +126,7 @@ export default function Nav() {
             className="btn btn-solid"
             href={contato.grupoWhatsapp}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             onClick={fechar}
           >
             Entrar no grupo do Baco
@@ -135,7 +135,7 @@ export default function Nav() {
             className="btn btn-ghost"
             href={instagram.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             onClick={fechar}
           >
             Instagram {instagram.handle}

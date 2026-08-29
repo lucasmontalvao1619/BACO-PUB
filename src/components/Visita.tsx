@@ -31,7 +31,7 @@ export default function Visita() {
                 <div>
                   <dt>Endereço</dt>
                   <dd>
-                    <a href={mapaLink} target="_blank" rel="noreferrer">
+                    <a href={mapaLink} target="_blank" rel="noopener noreferrer">
                       {contato.endereco}
                     </a>
                   </dd>
@@ -39,7 +39,7 @@ export default function Visita() {
                 <div>
                   <dt>Contato da casa</dt>
                   <dd>
-                    <a href={contato.whatsapp} target="_blank" rel="noreferrer">
+                    <a href={contato.whatsapp} target="_blank" rel="noopener noreferrer">
                       {contato.telefone}
                     </a>
                   </dd>
@@ -47,7 +47,7 @@ export default function Visita() {
                 <div>
                   <dt>Aniversários e eventos</dt>
                   <dd>
-                    <a href={contato.whatsapp} target="_blank" rel="noreferrer">
+                    <a href={contato.whatsapp} target="_blank" rel="noopener noreferrer">
                       Combine com a casa no WhatsApp
                     </a>
                   </dd>
@@ -56,7 +56,7 @@ export default function Visita() {
                   <dt>Redes sociais</dt>
                   {redes.map((rede) => (
                     <dd key={rede.nome}>
-                      <a href={rede.url} target="_blank" rel="noreferrer">
+                      <a href={rede.url} target="_blank" rel="noopener noreferrer">
                         {rede.nome} · {rede.handle}
                       </a>
                     </dd>
@@ -68,7 +68,7 @@ export default function Visita() {
                 className="btn btn-solid"
                 href={contato.grupoWhatsapp}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Entrar no grupo do Baco
               </a>

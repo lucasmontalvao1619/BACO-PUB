@@ -26,7 +26,7 @@ export default function Grupo() {
               className="btn btn-solid"
               href={contato.grupoWhatsapp}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Entrar no grupo do WhatsApp
             </a>

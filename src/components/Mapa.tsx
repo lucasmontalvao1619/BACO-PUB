@@ -16,8 +16,12 @@ export default function Mapa() {
           title={`Mapa do ${contato.nome} — ${contato.endereco}`}
           src={mapaEmbed}
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
+          referrerPolicy="no-referrer"
+          /* O sandbox nega tudo e devolve so o que o embed precisa. O que
+             fica de fora e o que importa: sem allow-top-navigation, o
+             mapa nao consegue redirecionar a pagina que o hospeda. */
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+          allow="fullscreen"
         />
       ) : (
         <button type="button" className="mapa-preview" onClick={() => setAberto(true)}>
@@ -32,7 +36,7 @@ export default function Mapa() {
 
       <div className="mapa-legenda">
         <span>{contato.cidade} · aberto de quarta a sábado, a partir das 19h</span>
-        <a href={mapaLink} target="_blank" rel="noreferrer">
+        <a href={mapaLink} target="_blank" rel="noopener noreferrer">
           Abrir rota no Google Maps →
         </a>
       </div>

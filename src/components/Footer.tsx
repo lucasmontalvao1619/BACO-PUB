@@ -11,7 +11,7 @@ export default function Footer() {
 
         <nav className="footer-social">
           {redes.map((rede) => (
-            <a key={rede.nome} href={rede.url} target="_blank" rel="noreferrer">
+            <a key={rede.nome} href={rede.url} target="_blank" rel="noopener noreferrer">
               {rede.nome}
             </a>
           ))}
@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="shell">
         <p className="footer-credito">
           Feito por{' '}
-          <a href="https://www.instagram.com/lukk.oliv/" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/lukk.oliv/" target="_blank" rel="noopener noreferrer">
             Lucas Oliveira
           </a>
         </p>

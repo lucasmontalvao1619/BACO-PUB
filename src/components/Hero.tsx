@@ -19,10 +19,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a className="btn btn-solid" href={contato.grupoWhatsapp} target="_blank" rel="noreferrer">
+            <a className="btn btn-solid" href={contato.grupoWhatsapp} target="_blank" rel="noopener noreferrer">
               Entrar no grupo do Baco
             </a>
-            <a className="btn btn-ghost" href={redes[0].url} target="_blank" rel="noreferrer">
+            <a className="btn btn-ghost" href={redes[0].url} target="_blank" rel="noopener noreferrer">
               Ver o Instagram
             </a>
           </div>

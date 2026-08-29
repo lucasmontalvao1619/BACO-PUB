@@ -121,6 +121,12 @@ a {
 img {
   display: block;
   max-width: 100%;
+  /* Companheiro obrigatorio do max-width. Os <img> levam width/height no
+     HTML pra reservar o espaco e nao dar salto de layout, mas o atributo
+     `height` vale como `height: 420px`: sem o `auto` aqui, a largura
+     encolhe na tela estreita e a altura fica cravada — a logo do hero
+     virava elipse no celular. */
+  height: auto;
 }
 
 ::selection {
@@ -569,6 +575,13 @@ img {
 
 .hero-logo img {
   width: 100%;
+  /* a logo e quadrada e o recorte e circular: travar a proporcao aqui
+     garante o circulo mesmo que o atributo `height` do HTML, um arquivo
+     fora de esquadro ou uma folha externa tentem esticar a altura —
+     era isso que virava elipse na tela do celular */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 50%;
   background: var(--cream);
 }

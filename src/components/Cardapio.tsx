@@ -40,7 +40,7 @@ export default function Cardapio() {
           <p className="menu-aviso">
             {aviso} Os drinks da Semana Mística valem enquanto a semana estiver rolando — o cardápio
             completo fica com a casa, então{' '}
-            <a href={contato.grupoWhatsapp} target="_blank" rel="noreferrer">
+            <a href={contato.grupoWhatsapp} target="_blank" rel="noopener noreferrer">
               pergunte no grupo do Baco
             </a>{' '}
             para confirmar valores e disponibilidade.

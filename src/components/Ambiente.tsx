@@ -65,11 +65,12 @@ export default function Ambiente() {
           <Reveal delay={100}>
             <p className="menu-aviso">
               As fotos da casa estão no{' '}
-              <a href={redes[0].url} target="_blank" rel="noreferrer">
+              <a href={redes[0].url} target="_blank" rel="noopener noreferrer">
                 Instagram {redes[0].handle}
               </a>
-              . Salve os arquivos em <code>public/ambiente/</code> com os nomes indicados no{' '}
-              <code>LEIA-ME.txt</code> e cada ficha vira um tile com a foto, sem mexer no código.
+              . Salve os arquivos em <code>public/ambiente/</code> com os nomes indicados na
+              tabela do <code>README.md</code> e cada ficha vira um tile com a foto, sem mexer no
+              código.
             </p>
           </Reveal>
         )}

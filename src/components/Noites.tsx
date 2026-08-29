@@ -34,7 +34,7 @@ export default function Noites() {
         <Reveal delay={100}>
           <p className="menu-aviso">
             Programação da Semana Mística publicada pela casa no{' '}
-            <a href={redes[0].url} target="_blank" rel="noreferrer">
+            <a href={redes[0].url} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
             . A cada semana o Baco anuncia uma nova — acompanhe por lá ou pelo grupo.
