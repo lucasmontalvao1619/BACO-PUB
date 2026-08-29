@@ -17,6 +17,16 @@ export default function Footer() {
           ))}
         </nav>
       </div>
+
+      {/* assinatura: discreta, na ultima linha, mas com contraste pra ser lida */}
+      <div className="shell">
+        <p className="footer-credito">
+          Feito por{' '}
+          <a href="https://www.instagram.com/lukk.oliv/" target="_blank" rel="noreferrer">
+            Lucas Oliveira
+          </a>
+        </p>
+      </div>
     </footer>
   )
 }
